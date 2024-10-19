@@ -9,7 +9,7 @@ let a;
 let b;
 let operator;
 
-const operate  = function(a, b, operator) {
+const operate  = function(a, operator, b) {
     if (operator === "+") {
         return add(a, b);
     };
@@ -24,4 +24,4 @@ const operate  = function(a, b, operator) {
     }
 };
 
-console.log(operate(1, 2, "*"));
+console.log(operate(1, "+", 4));
