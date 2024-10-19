@@ -1,8 +1,42 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: hsl(0, 0%, 8%);
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 row {
     display: flex;
+    gap: 12px;
 }
 
 container {
     display: flex;
     flex-direction: column;
+    gap: 12px;
+}
+
+button {
+    height: 80px;
+    width: 80px;
+    background-color: hsl(0, 0%, 8%);
+    color: hsl(0, 0%, 94%);
+    border-radius: 50%;
+    border: 0.5px solid hsl(0, 0%, 92%);
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: hsl(0, 0%, 10%);
+}
+#display {
+    flex: 1;
+    height: 80px;
+    border: 0.5px solid hsl(83, 100%, 92%);
+    border-radius: 50px;
 }
