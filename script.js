@@ -37,80 +37,52 @@ const num8 = document.querySelector("#num8");
 const num9 = document.querySelector("#num9");
 
 const display = document.querySelector("#display");
-const clear = document.querySelector("#clear")
+const clear = document.querySelector("#clear");
+
+const updateDisplay = (value) => {
+    if (display.textContent === "0") {
+        display.textContent = value;
+    } else {
+    display.textContent += value;
+    };
+}
 
 clear.addEventListener("click", () => {
-    display.textContent = "0";
+    display.textContent = 0;
 })
 
 num1.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "1";
-    } else {
-    display.textContent += "1";
-    };
+    updateDisplay(1);
 });
 
 num2.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "2";
-    } else {
-    display.textContent += "2";
-    };
+    updateDisplay(2);
 });
 
 num3.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "3";
-    } else {
-    display.textContent += "3";
-    };
+    updateDisplay(3);
 });
 
 num4.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "4";
-    } else {
-    display.textContent += "4";
-    };
+    updateDisplay(4);
 });
 
 num5.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "5";
-    } else {
-    display.textContent += "5";
-    };
+    updateDisplay(5);
 });
 
 num6.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "6";
-    } else {
-    display.textContent += "6";
-    };
+    updateDisplay(6);
 });
 
 num7.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "7";
-    } else {
-    display.textContent += "7";
-    };
+    updateDisplay(7);
 });
 
 num8.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "8";
-    } else {
-    display.textContent += "8";
-    };
+    updateDisplay(8);
 });
 
 num9.addEventListener("click", () => {
-    if (display.textContent === "0") {
-        display.textContent = "9";
-    } else {
-    display.textContent += "9";
-    };
+    updateDisplay(9);
 });
