@@ -1,3 +1,4 @@
 const addFunction = (a, b) => a + b;
+const subtractFunction = (a, b) => a - b;
 
-console.log(addFunction(4, 6));
+console.log(subtractFunction(4, 6));
