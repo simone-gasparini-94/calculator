@@ -34,9 +34,18 @@ button {
 button:hover {
     background-color: hsl(0, 0%, 10%);
 }
+
 #display {
     flex: 1;
     height: 80px;
     border: 0.5px solid hsl(83, 100%, 92%);
-    border-radius: 50px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+    display: flex;
+    color: hsl(0, 0%, 94%);
+    font-size: 20px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 32px;
+
 }
