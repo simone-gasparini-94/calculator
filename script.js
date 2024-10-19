@@ -1,4 +1,4 @@
-const add = (a, b) => a + b;
+/* const add = (a, b) => a + b;
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
@@ -9,7 +9,7 @@ let a;
 let b;
 let operator;
 
-const operate  = function(a, operator, b) {
+const operate = function(a, operator, b) {
     if (operator === "+") {
         return add(a, b);
     };
@@ -25,6 +25,7 @@ const operate  = function(a, operator, b) {
 };
 
 console.log(operate(1, "+", 4));
+*/
 
 const num1 = document.querySelector("#num1");
 const num2 = document.querySelector("#num2");
@@ -39,17 +40,38 @@ const num9 = document.querySelector("#num9");
 const display = document.querySelector("#display");
 const clear = document.querySelector("#clear");
 
+const plus = document.querySelector("#plus");
+
 const updateDisplay = (value) => {
     if (display.textContent === "0") {
         display.textContent = value;
     } else {
     display.textContent += value;
     };
-}
+};
+let operator;
+let firstNumber;
+let secondNumber;
+
+const operate = (symbol) => {
+    firstNumber = parseFloat(display.textContent);
+    operator = symbol;
+    display.textContent = "0";
+    console.log(firstNumber);
+    console.log(operator);
+};
+
+plus.addEventListener("click", () => {
+    operate("+");
+});
 
 clear.addEventListener("click", () => {
-    display.textContent = 0;
-})
+    display.textContent = "0";
+});
+
+num0.addEventListener("click", () => {
+    updateDisplay(0);
+});
 
 num1.addEventListener("click", () => {
     updateDisplay(1);
