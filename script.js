@@ -25,3 +25,4 @@ const operate  = function(a, operator, b) {
 };
 
 console.log(operate(1, "+", 4));
+
