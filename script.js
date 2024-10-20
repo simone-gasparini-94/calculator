@@ -68,7 +68,7 @@ const createResult = () => {
         };
     };
 
-    display.textContent = result.toFixed(2);
+    display.textContent = Number.isInteger(result) ? result : result.toFixed(2);
     firstNumber = result;
     secondNumber = null;
     operator = null;
