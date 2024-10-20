@@ -38,8 +38,6 @@ const createFirstNumber = (symbol) => {
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
     display.textContent = operator;
-    console.log("first number: ", firstNumber);
-    console.log("operator: ", operator);
 };
 
 const createSecondNumber = () => {
@@ -47,15 +45,10 @@ const createSecondNumber = () => {
     if (isNaN(secondNumber)) {
         secondNumber = 0;
     }
-    console.log("second number: ", secondNumber);
 };
 
 const createResult = () => {
     let result;
-    console.log("first number: ", firstNumber);
-    console.log("second number: ", secondNumber);
-    console.log("operator: ", operator);
-
     if (operator === null) {
         result = secondNumber;
     };
@@ -76,12 +69,9 @@ const createResult = () => {
     };
 
     display.textContent = result;
-    console.log("result: ", result);
     firstNumber = result;
     secondNumber = null;
     operator = null;
-    console.log("first number: ", firstNumber);
-    console.log("second number: ", secondNumber);
 };
 
 equals.addEventListener("click", () => {
@@ -110,10 +100,6 @@ clear.addEventListener("click", () => {
     firstNumber = null;
     secondNumber = null;
     operator = null;
-    console.log("first number: ", firstNumber);
-    console.log("second number: ", secondNumber);
-    console.log("operator: ", operator);
-
 });
 
 num0.addEventListener("click", () => {
