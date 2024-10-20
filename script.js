@@ -14,9 +14,10 @@ const clear = document.querySelector("#clear");
 const plus = document.querySelector("#plus");
 const equals = document.querySelector("#equals");
 
-let operator;
-let firstNumber;
-let secondNumber;
+let operator = null;
+let firstNumber = null;
+let secondNumber = null;
+let result = null;
 
 const updateDisplay = (value) => {
     if (display.textContent === "0") {
@@ -44,15 +45,14 @@ const createSecondNumber = () => {
 };
 
 const createResult = () => {
+    let result;
     console.log("first number: ", firstNumber);
     console.log("second number: ", secondNumber);
     console.log("operator: ", operator);
 
-    let result;
-    if (operator === undefined) {
-        result = secondNumber;
+    if(operator === null) {
+        result = firstNumber;
     };
-
     if (operator === "+") {
         result = firstNumber + secondNumber;
     };
@@ -65,9 +65,14 @@ const createResult = () => {
     if (operator === "/") {
         result = firstNumber / secondNumber;
     };
+    
     display.textContent = result;
     console.log("result: ", result);
     firstNumber = result;
+    secondNumber = null;
+    operator = null;
+    console.log("first number: ", firstNumber);
+    console.log("second number: ", secondNumber);
 };
 
 equals.addEventListener("click", () => {
@@ -81,6 +86,13 @@ plus.addEventListener("click", () => {
 
 clear.addEventListener("click", () => {
     display.textContent = "";
+    firstNumber = null;
+    secondNumber = null;
+    operator = null;
+    console.log("first number: ", firstNumber);
+    console.log("second number: ", secondNumber);
+    console.log("operator: ", operator);
+
 });
 
 num0.addEventListener("click", () => {
