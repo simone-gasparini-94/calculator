@@ -19,7 +19,7 @@ let firstNumber;
 let secondNumber;
 
 const updateDisplay = (value) => {
-    if (display.textContent === "") {
+    if (display.textContent === "0") {
         display.textContent = value;
     } else {
     display.textContent += value;
@@ -29,17 +29,18 @@ const updateDisplay = (value) => {
 const createFirstNumber = (symbol) => {
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
-    display.textContent = "";
+    display.textContent = "0";
     console.log("first number: ", firstNumber);
     console.log("operator: ", operator);
 };
 
 const createSecondNumber = () => {
-    if (display.textContent === "") {
+    if (display.textContent === "0") {
         secondNumber = 0;
+    } else { 
+        secondNumber = parseFloat(display.textContent);
     };
-    secondNumber = parseFloat(display.textContent);
-    console.log(secondNumber);
+    console.log("second number: ", secondNumber);
 };
 
 const createResult = () => {
@@ -48,6 +49,10 @@ const createResult = () => {
     console.log("operator: ", operator);
 
     let result;
+    if (operator === undefined) {
+        result = secondNumber;
+    };
+
     if (operator === "+") {
         result = firstNumber + secondNumber;
     };
@@ -61,7 +66,7 @@ const createResult = () => {
         result = firstNumber / secondNumber;
     };
     display.textContent = result;
-    console.log(result);
+    console.log("result: ", result);
     firstNumber = result;
 };
 
