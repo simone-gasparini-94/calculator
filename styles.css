@@ -35,7 +35,11 @@ button:hover {
     background-color: hsl(0, 0%, 10%);
 }
 
-#display {
+button:active {
+    background-color: hsl(0, 0%, 16%);
+}
+
+#display-container {
     flex: 1;
     height: 80px;
     border: 0.5px solid hsl(83, 100%, 92%);
@@ -47,5 +51,10 @@ button:hover {
     justify-content: flex-end;
     align-items: center;
     padding-right: 32px;
+    overflow: hidden;
+}
 
+#display {
+    max-width: 200px;
+    overflow: hidden;
 }
