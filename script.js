@@ -1,32 +1,3 @@
-/* const add = (a, b) => a + b;
-const subtract = (a, b) => a - b;
-const multiply = (a, b) => a * b;
-const divide = (a, b) => a / b;
-
-console.log(divide(4, 6));
-
-let a;
-let b;
-let operator;
-
-const operate = function(a, operator, b) {
-    if (operator === "+") {
-        return add(a, b);
-    };
-    if (operator === "-") {
-        return subtract(a, b);
-    };
-    if (operator === "*") {
-        return multiply(a, b);
-    };
-    if (operator === "-") {
-        return divide(a, b);
-    }
-};
-
-console.log(operate(1, "+", 4));
-*/
-
 const num1 = document.querySelector("#num1");
 const num2 = document.querySelector("#num2");
 const num3 = document.querySelector("#num3");
@@ -43,6 +14,10 @@ const clear = document.querySelector("#clear");
 const plus = document.querySelector("#plus");
 const equals = document.querySelector("#equals");
 
+let operator;
+let firstNumber;
+let secondNumber;
+
 const updateDisplay = (value) => {
     if (display.textContent === "0") {
         display.textContent = value;
@@ -50,30 +25,50 @@ const updateDisplay = (value) => {
     display.textContent += value;
     };
 };
-let operator;
-let firstNumber;
-let secondNumber;
 
 const createFirstNumber = (symbol) => {
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
-    display.textContent = "0";
+    display.textContent = "";
+    console.log(firstNumber);
+    console.log(operator);
 };
 
 const createSecondNumber = () => {
     secondNumber = parseFloat(display.textContent);
+    console.log(secondNumber);
 };
 
-const createResult = (createFirstNumber(), createSecondNumber()) {
+const createResult = () => {
+    console.log(firstNumber);
+    console.log(secondNumber);
+    console.log(operator);
 
-}
+    let result;
+    if (operator === "+") {
+        result = firstNumber + secondNumber;
+    };
+    if (operator === "-") {
+        result = firstNumber - secondNumber;
+    };
+    if (operator === "*") {
+        result = firstNumber * secondNumber;
+    };
+    if (operator === "/") {
+        result = firstNumber / secondNumber;
+    };
+    display.textContent = result;
+    console.log(result);
+    firstNumber = result;
+};
 
 equals.addEventListener("click", () => {
-    operate2()
+    createSecondNumber();
+    createResult();
 });
 
 plus.addEventListener("click", () => {
-    operate1("+");
+    createFirstNumber("+");
 });
 
 clear.addEventListener("click", () => {
