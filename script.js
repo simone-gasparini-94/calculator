@@ -12,6 +12,9 @@ const display = document.querySelector("#display");
 const clear = document.querySelector("#clear");
 
 const plus = document.querySelector("#plus");
+const minus = document.querySelector("#minus");
+const multiplication = document.querySelector("#multiplication");
+const division = document.querySelector("#division");
 const equals = document.querySelector("#equals");
 
 let operator = null;
@@ -20,7 +23,7 @@ let secondNumber = null;
 let result = null;
 
 const updateDisplay = (value) => {
-    if (display.textContent === "0") {
+    if (display.textContent === "0" || display.textContent === operator) {
         display.textContent = value;
     } else {
     display.textContent += value;
@@ -30,7 +33,7 @@ const updateDisplay = (value) => {
 const createFirstNumber = (symbol) => {
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
-    display.textContent = "0";
+    display.textContent = operator;
     console.log("first number: ", firstNumber);
     console.log("operator: ", operator);
 };
@@ -65,7 +68,7 @@ const createResult = () => {
     if (operator === "/") {
         result = firstNumber / secondNumber;
     };
-    
+
     display.textContent = result;
     console.log("result: ", result);
     firstNumber = result;
@@ -82,6 +85,18 @@ equals.addEventListener("click", () => {
 
 plus.addEventListener("click", () => {
     createFirstNumber("+");
+});
+
+minus.addEventListener("click", () => {
+    createFirstNumber("-");
+});
+
+multiplication.addEventListener("click", () => {
+    createFirstNumber("*");
+});
+
+division.addEventListener("click", () => {
+    createFirstNumber("/");
 });
 
 clear.addEventListener("click", () => {
