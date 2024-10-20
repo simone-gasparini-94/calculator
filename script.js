@@ -61,7 +61,7 @@ const createResult = () => {
     if (operator === "-") {
         result = firstNumber - secondNumber;
     };
-    if (operator === "*") {
+    if (operator === "x") {
         result = firstNumber * secondNumber;
     };
     if (operator === "/") {
@@ -92,7 +92,7 @@ minus.addEventListener("click", () => {
 });
 
 multiplication.addEventListener("click", () => {
-    createFirstNumber("*");
+    createFirstNumber("x");
 });
 
 division.addEventListener("click", () => {
