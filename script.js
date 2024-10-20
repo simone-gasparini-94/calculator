@@ -41,6 +41,7 @@ const display = document.querySelector("#display");
 const clear = document.querySelector("#clear");
 
 const plus = document.querySelector("#plus");
+const equals = document.querySelector("#equals");
 
 const updateDisplay = (value) => {
     if (display.textContent === "0") {
@@ -53,16 +54,26 @@ let operator;
 let firstNumber;
 let secondNumber;
 
-const operate = (symbol) => {
+const createFirstNumber = (symbol) => {
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
     display.textContent = "0";
-    console.log(firstNumber);
-    console.log(operator);
 };
 
+const createSecondNumber = () => {
+    secondNumber = parseFloat(display.textContent);
+};
+
+const createResult = (createFirstNumber(), createSecondNumber()) {
+
+}
+
+equals.addEventListener("click", () => {
+    operate2()
+});
+
 plus.addEventListener("click", () => {
-    operate("+");
+    operate1("+");
 });
 
 clear.addEventListener("click", () => {
