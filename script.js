@@ -39,13 +39,15 @@ const createFirstNumber = (symbol) => {
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
     display.textContent = operator;
+    dot.disabled = false;
 };
 
 const createSecondNumber = () => {
     secondNumber = parseFloat(display.textContent);
     if (isNaN(secondNumber)) {
         secondNumber = 0;
-    }
+    };
+    dot.disabled = false;
 };
 
 const createResult = () => {
@@ -69,10 +71,11 @@ const createResult = () => {
         };
     };
 
-    display.textContent = Number.isInteger(result) ? result : result.toFixed(2);
+    display.textContent = Number.isInteger(result) ? result : result.toFixed(1);
     firstNumber = result;
     secondNumber = null;
     operator = null;
+    dot.disabled = false;
 };
 
 equals.addEventListener("click", () => {
@@ -101,6 +104,7 @@ clear.addEventListener("click", () => {
     firstNumber = null;
     secondNumber = null;
     operator = null;
+    dot.disabled = false;
 });
 
 num0.addEventListener("click", () => {
