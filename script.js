@@ -19,7 +19,7 @@ let firstNumber;
 let secondNumber;
 
 const updateDisplay = (value) => {
-    if (display.textContent === "0") {
+    if (display.textContent === "") {
         display.textContent = value;
     } else {
     display.textContent += value;
@@ -30,19 +30,22 @@ const createFirstNumber = (symbol) => {
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
     display.textContent = "";
-    console.log(firstNumber);
-    console.log(operator);
+    console.log("first number: ", firstNumber);
+    console.log("operator: ", operator);
 };
 
 const createSecondNumber = () => {
+    if (display.textContent === "") {
+        secondNumber = 0;
+    };
     secondNumber = parseFloat(display.textContent);
     console.log(secondNumber);
 };
 
 const createResult = () => {
-    console.log(firstNumber);
-    console.log(secondNumber);
-    console.log(operator);
+    console.log("first number: ", firstNumber);
+    console.log("second number: ", secondNumber);
+    console.log("operator: ", operator);
 
     let result;
     if (operator === "+") {
@@ -72,7 +75,7 @@ plus.addEventListener("click", () => {
 });
 
 clear.addEventListener("click", () => {
-    display.textContent = "0";
+    display.textContent = "";
 });
 
 num0.addEventListener("click", () => {
