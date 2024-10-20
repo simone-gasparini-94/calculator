@@ -31,6 +31,10 @@ const updateDisplay = (value) => {
 };
 
 const createFirstNumber = (symbol) => {
+    if (firstNumber !== null && operator !== null) {
+        createSecondNumber();
+        createResult();
+    };
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
     display.textContent = operator;
@@ -39,11 +43,10 @@ const createFirstNumber = (symbol) => {
 };
 
 const createSecondNumber = () => {
-    if (display.textContent === "0") {
+    secondNumber = parseFloat(display.textContent);
+    if (isNaN(secondNumber)) {
         secondNumber = 0;
-    } else { 
-        secondNumber = parseFloat(display.textContent);
-    };
+    }
     console.log("second number: ", secondNumber);
 };
 
@@ -53,8 +56,8 @@ const createResult = () => {
     console.log("second number: ", secondNumber);
     console.log("operator: ", operator);
 
-    if(operator === null) {
-        result = firstNumber;
+    if (operator === null) {
+        result = secondNumber;
     };
     if (operator === "+") {
         result = firstNumber + secondNumber;
