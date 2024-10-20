@@ -70,6 +70,9 @@ const createResult = () => {
     };
     if (operator === "/") {
         result = firstNumber / secondNumber;
+        if (result === Infinity) {
+            result = "ERROR";
+        };
     };
 
     display.textContent = result;
