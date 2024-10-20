@@ -16,6 +16,7 @@ const minus = document.querySelector("#minus");
 const multiplication = document.querySelector("#multiplication");
 const division = document.querySelector("#division");
 const equals = document.querySelector("#equals");
+const dot = document.querySelector("#dot");
 
 let operator = null;
 let firstNumber = null;
@@ -140,4 +141,11 @@ num8.addEventListener("click", () => {
 
 num9.addEventListener("click", () => {
     updateDisplay(9);
+});
+
+dot.addEventListener("click", () => {
+    display.textContent += ".";
+    if (display.textContent.includes(".")) {
+        dot.disabled = true;
+    };
 });
