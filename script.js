@@ -31,72 +31,66 @@ const updateDisplay = (value) => {
     };
 };
 
-const createFirstNumber = (symbol) => {
-    if (firstNumber !== null && operator !== null) {
-        createSecondNumber();
-        createResult();
-    };
+const setOperator = (symbol) => {
+    if (firstNumber !== null) {
+        secondNumber = parseFloat(display.textContent);
+        calculateResult();
+    }
     firstNumber = parseFloat(display.textContent);
     operator = symbol;
     display.textContent = operator;
     dot.disabled = false;
 };
 
-const createSecondNumber = () => {
-    secondNumber = parseFloat(display.textContent);
-    if (isNaN(secondNumber)) {
-        secondNumber = 0;
-    };
-    dot.disabled = false;
-};
+const calculateResult = () => {
+    if (firstNumber === null || operator === null) return;
 
-const createResult = () => {
-    let result;
-    if (operator === null) {
-        result = secondNumber;
-    };
-    if (operator === "+") {
-        result = firstNumber + secondNumber;
-    };
-    if (operator === "-") {
-        result = firstNumber - secondNumber;
-    };
-    if (operator === "x") {
-        result = firstNumber * secondNumber;
-    };
-    if (operator === "/") {
-        result = firstNumber / secondNumber;
-        if (result === Infinity) {
-            result = "ERROR";
-        };
-    };
+    secondNumber = parseFloat(display.textContent);
+    if (isNaN(secondNumber)) secondNumber = 0;
+
+    let result = 0;
+    switch (operator) {
+        case "+":
+            result = firstNumber + secondNumber;
+            break;
+        case "-":
+            result = firstNumber - secondNumber;
+            break;
+        case "x":
+            result = firstNumber * secondNumber;
+            break;
+        case "/":
+            result = secondNumber !== 0 ? firstNumber / secondNumber : "ERROR";
+            break;
+        default:
+            result = secondNumber;
+    }
 
     display.textContent = Number.isInteger(result) ? result : result.toFixed(1);
     firstNumber = result;
-    secondNumber = null;
     operator = null;
+    secondNumber = null;
     dot.disabled = false;
 };
 
 equals.addEventListener("click", () => {
-    createSecondNumber();
-    createResult();
+    calculateResult();
 });
 
 plus.addEventListener("click", () => {
-    createFirstNumber("+");
+    setOperator("+");
 });
 
 minus.addEventListener("click", () => {
-    createFirstNumber("-");
+    setOperator("-");
 });
 
 multiplication.addEventListener("click", () => {
-    createFirstNumber("x");
+    setOperator("x");
 });
 
 division.addEventListener("click", () => {
-    createFirstNumber("/");
+    setOperator("/");
 });
 
 clear.addEventListener("click", () => {
