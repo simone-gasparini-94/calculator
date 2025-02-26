@@ -1,2 +1,3 @@
 # calculator
-on-screen calculator using JavaScript, HTML, and CSS.
+
+A simple and functional calculator built to practice JavaScript.
